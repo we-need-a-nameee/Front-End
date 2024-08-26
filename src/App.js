@@ -11,18 +11,21 @@ import Support from "./pages/support/Support";
 import HospitalLocator from "./pages/hospitallocator/HospitalLocator";
 import HospitalDetails from "./pages/hospitaldetails/HospitalDetails";
 import AppointmentBooking from "./pages/appointmentbooking/AppointmentBooking";
+import Telemedicine from "./pages/telemedicine/Telemedicine";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LayOut />,
     children: [
+      { path: "", element: <HomePage /> },
       { path: "home", element: <HomePage /> },
       { path: "userprofile", element: <UserProfile /> },
       { path: "patientreviews", element: <PatientReviews /> },
       { path: "hospitallocator", element: <HospitalLocator /> },
       { path: "hospitaldetails", element: <HospitalDetails /> },
       { path: "appointmentbooking", element: <AppointmentBooking /> },
+      { path: "telemedicine", element: <Telemedicine/> },
       { path: "support", element: <Support /> },
       { path: "about", element: <AboutUs /> },
       {},

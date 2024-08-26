@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Signup() {
+export default function Telemedicine() {
   return (
     <div className="h-[50vh] bg-dark text-light flex justify-center items-center font-bold text-3xl ">
-      Signup In Progress
+      Telemedicine
     </div>
   );
 }
- 
