@@ -1,5 +1,4 @@
 # Front-End
-<<<<<<< HEAD
 
 
 
