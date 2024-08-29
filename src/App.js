@@ -28,7 +28,6 @@ const router = createBrowserRouter([
       { path: "telemedicine", element: <Telemedicine/> },
       { path: "support", element: <Support /> },
       { path: "about", element: <AboutUs /> },
-      {},
     ],
   },
   { path: "/login", element: <Login /> },

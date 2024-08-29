@@ -17,7 +17,6 @@ import {
 import navCSS from "./navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
 
 const navigation = [
   { name: "Home", to: "/home" },
