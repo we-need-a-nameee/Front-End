@@ -16,8 +16,8 @@ import {
 } from "@heroicons/react/24/outline";
 import navCSS from "./navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
+//import TextField from "@mui/material/";
+
 
 const navigation = [
   { name: "Home", to: "/home" },
@@ -99,14 +99,14 @@ export default function Navbar() {
                 transition
                 className="absolute right-0 p-2 top-12 z-50 mt-2 origin-top-right rounded-md bg-lighttext-light shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in bg-light"
               >
-                <TextField
+                {/*<TextField
                   className="w-[200px]"
                   id="outlined-basic"
                   label="Search"
                   variant="outlined"
                   size="small"
                   
-                />
+                />*/}
               </MenuItems>
             </Menu>
             {/* notifications dropdown */}
