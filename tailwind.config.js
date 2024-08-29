@@ -6,12 +6,15 @@ module.exports = {
       colors: {
         dark: "#000000",
         light: "#EEEEEE",
-        primary: "#2C74B3",
-        c1: "#205295",
-        c2: "#144272",
-        c3: "#0A2647",
+        p: "#050C9C",
+        c1: "#A7E6FF",
+        c2: "#3ABEF9",
+        c3: "#3572EF",
       },
     },
   },
   plugins: [],
 };
+
+
+

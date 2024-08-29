@@ -1,21 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fotterCSS from "./footer.module.css";
+import footerCSS from "./footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className="bd-footer bg-c1 py-4 py-md-5">
+    <footer className="bd-footer bg-c3 py-4 py-md-5">
       <div className="container py-4 py-md-5 px-4 px-md-3 text-light">
-        <div className="row">
+        <div className="row justify-around ">
           <div className="col-lg-3 mb-3">
             <Link
               to="/home"
-              className={`${fotterCSS.logo} bg-gradient-to-r from-c2 via-c2 to-light text-transparent bg-clip-text text-4xl font-medium tracking-wide`}
+              className={`${footerCSS.logo} bg-gradient-to-r from-p via-p to-light text-transparent bg-clip-text text-4xl font-medium tracking-wide`}
               style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)" }}
             >
               WellNessWay
             </Link>
-            <ul className="list-unstyled small mt-3">
+            <ul
+              className={`
+              ${footerCSS.logo} list-unstyled text-sm font-light mt-3`}
+            >
               <li className="mb-2">
                 Designed and built with all the care in the world for your
                 mental wellness.
@@ -34,8 +37,8 @@ export default function Footer() {
               <li className="mb-2">Currently v1.0.0.</li>
             </ul>
           </div>
-          <div className="col-6 col-lg-2 offset-lg-1 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-c3">Quick Links</h5>
+          <div className="col-6 col-lg-1 offset-lg-1 mb-3">
+            <h5 className="text-lg font-medium mb-2 text-p">Quick Links</h5>
             <ul className="list-unstyled text-sm font-light">
               <li className="mb-2">
                 <a href="/">Home</a>
@@ -54,8 +57,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-6 col-lg-2 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-c3">Resources</h5>
+          <div className="col-6 col-lg-1 mb-3">
+            <h5 className="text-lg font-medium mb-2 text-p">Resources</h5>
             <ul className="list-unstyled text-sm font-light">
               <li className="mb-2">
                 <a href="/guides">Guides</a>
@@ -74,8 +77,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-6 col-lg-2 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-c3">Connect</h5>
+          <div className="col-6 col-lg-1 mb-3">
+            <h5 className="text-lg font-medium mb-2 text-p">Connect</h5>
             <ul className="list-unstyled text-sm font-light">
               <li className="mb-2">
                 <a
@@ -84,7 +87,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label="Facebook"
                 >
-                  <i className="fab fa-facebook text-c3 text-xl mr-1"></i>{" "}
+                  <i className="fab fa-facebook text-p text-xl mr-1"></i>{" "}
                   Facebook
                 </a>
               </li>
@@ -95,8 +98,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label="Twitter"
                 >
-                  <i className="fab fa-twitter text-c3 text-xl mr-1"></i>{" "}
-                  Twitter
+                  <i className="fab fa-twitter text-p text-xl mr-1"></i> Twitter
                 </a>
               </li>
               <li className="mb-2">
@@ -106,7 +108,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label="Instagram"
                 >
-                  <i className="fab fa-instagram text-c3 text-xl mr-1"></i>{" "}
+                  <i className="fab fa-instagram text-p text-xl mr-1"></i>{" "}
                   Instagram
                 </a>
               </li>
@@ -117,14 +119,14 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                 >
-                  <i className="fab fa-linkedin text-c3 text-xl mr-1"></i>{" "}
+                  <i className="fab fa-linkedin text-p text-xl mr-1"></i>{" "}
                   LinkedIn
                 </a>
               </li>
             </ul>
           </div>
-          <div className="col-6 col-lg-2 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-c3">Community</h5>
+          <div className="col-6 col-lg-1 mb-3">
+            <h5 className="text-lg font-medium mb-2 text-p">Community</h5>
             <ul className="list-unstyled text-sm font-light">
               <li className="mb-2">
                 <a href="/forum">Forum</a>

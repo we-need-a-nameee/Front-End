@@ -10,10 +10,10 @@
 :root {
   --dark: #000000;
   --light: #eeeeee;
-  --primary: #2c74b3;
-  --c1: #205295;
-  --c2: #144272;
-  --c3: #0a2647;
+  --primary: #050C9C;
+  --c1: #A7E6FF;
+  --c2: #3ABEF9;
+  --c3: #3572EF;
 }
 
 body {
