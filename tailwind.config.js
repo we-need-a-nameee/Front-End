@@ -4,17 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#000000",
+        dark: "#2f2e41",
         light: "#EEEEEE",
-        p: "#050C9C",
-        c1: "#A7E6FF",
-        c2: "#3ABEF9",
-        c3: "#3572EF",
+        pr: "#433de4",
+        wh: "#ffffff",
+        gr: "#f2f2f2",
       },
     },
   },
   plugins: [],
 };
-
-
-

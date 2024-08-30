@@ -4,20 +4,20 @@ import footerCSS from "./footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className="bd-footer bg-c3 py-4 py-md-5">
-      <div className="container py-4 py-md-5 px-4 px-md-3 text-light">
+    <footer className="bd-footer py-4 py-md-5">
+      <div className="container py-4 py-md-5 px-4 px-md-3 text-dark">
         <div className="row justify-around ">
           <div className="col-lg-3 mb-3">
             <Link
               to="/home"
-              className={`${footerCSS.logo} bg-gradient-to-r from-p via-p to-light text-transparent bg-clip-text text-4xl font-medium tracking-wide`}
+              className={`${footerCSS.logo} bg-gradient-to-r from-pr via-pr to-dark text-transparent bg-clip-text text-4xl font-medium tracking-wide`}
               style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)" }}
             >
               WellNessWay
             </Link>
             <ul
               className={`
-              ${footerCSS.logo} list-unstyled text-sm font-light mt-3`}
+              ${footerCSS.logo} list-unstyled text-sm font-normal mt-3`}
             >
               <li className="mb-2">
                 Designed and built with all the care in the world for your
@@ -25,7 +25,7 @@ export default function Footer() {
               </li>
               <li className="mb-2">
                 All content is licensed under{" "}
-                <a
+                <a className="hover:text-pr hover:underline transition"
                   href="https://creativecommons.org/licenses/by/3.0/"
                   target="_blank"
                   rel="license noopener"
@@ -38,50 +38,50 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-6 col-lg-1 offset-lg-1 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-p">Quick Links</h5>
-            <ul className="list-unstyled text-sm font-light">
+            <h5 className="text-lg font-medium mb-2 text-pr">Quick Links</h5>
+            <ul className="list-unstyled text-sm font-normal">
               <li className="mb-2">
-                <a href="/">Home</a>
+                <a className="hover:text-pr hover:underline transition" href="/">Home</a>
               </li>
               <li className="mb-2">
-                <a href="/about">About Us</a>
+                <a className="hover:text-pr hover:underline transition" href="/about">About Us</a>
               </li>
               <li className="mb-2">
-                <a href="/services">Services</a>
+                <a className="hover:text-pr hover:underline transition" href="/services">Services</a>
               </li>
               <li className="mb-2">
-                <a href="/contact">Contact</a>
+                <a className="hover:text-pr hover:underline transition" href="/contact">Contact</a>
               </li>
               <li className="mb-2">
-                <a href="/blog">Blog</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-6 col-lg-1 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-p">Resources</h5>
-            <ul className="list-unstyled text-sm font-light">
-              <li className="mb-2">
-                <a href="/guides">Guides</a>
-              </li>
-              <li className="mb-2">
-                <a href="/faq">FAQ</a>
-              </li>
-              <li className="mb-2">
-                <a href="/support">Support</a>
-              </li>
-              <li className="mb-2">
-                <a href="/terms">Terms of Service</a>
-              </li>
-              <li className="mb-2">
-                <a href="/privacy">Privacy Policy</a>
+                <a className="hover:text-pr hover:underline transition" href="/blog">Blog</a>
               </li>
             </ul>
           </div>
           <div className="col-6 col-lg-1 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-p">Connect</h5>
-            <ul className="list-unstyled text-sm font-light">
+            <h5 className="text-lg font-medium mb-2 text-pr">Resources</h5>
+            <ul className="list-unstyled text-sm font-normal">
               <li className="mb-2">
-                <a
+                <a className="hover:text-pr hover:underline transition" href="/guides">Guides</a>
+              </li>
+              <li className="mb-2">
+                <a className="hover:text-pr hover:underline transition" href="/faq">FAQ</a>
+              </li>
+              <li className="mb-2">
+                <a className="hover:text-pr hover:underline transition" href="/support">Support</a>
+              </li>
+              <li className="mb-2">
+                <a className="hover:text-pr hover:underline transition" href="/terms">Terms of Service</a>
+              </li>
+              <li className="mb-2">
+                <a className="hover:text-pr hover:underline transition" href="/privacy">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+          <div className="col-6 col-lg-1 mb-3">
+            <h5 className="text-lg font-medium mb-2 text-pr">Connect</h5>
+            <ul className="list-unstyled text-sm font-normal">
+              <li className="mb-2">
+                <a className="hover:text-pr hover:underline transition"
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -92,7 +92,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-2">
-                <a
+                <a className="hover:text-pr hover:underline transition"
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -102,7 +102,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-2">
-                <a
+                <a className="hover:text-pr hover:underline transition"
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,7 +113,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-2">
-                <a
+                <a className="hover:text-pr hover:underline transition"
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -126,22 +126,22 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-6 col-lg-1 mb-3">
-            <h5 className="text-lg font-medium mb-2 text-p">Community</h5>
-            <ul className="list-unstyled text-sm font-light">
+            <h5 className="text-lg font-medium mb-2 text-pr">Community</h5>
+            <ul className="list-unstyled text-sm font-normal">
               <li className="mb-2">
-                <a href="/forum">Forum</a>
+                <a className="hover:text-pr hover:underline transition" href="/forum">Forum</a>
               </li>
               <li className="mb-2">
-                <a href="/events">Events</a>
+                <a className="hover:text-pr hover:underline transition" href="/events">Events</a>
               </li>
               <li className="mb-2">
-                <a href="/partners">Partners</a>
+                <a className="hover:text-pr hover:underline transition" href="/partners">Partners</a>
               </li>
               <li className="mb-2">
-                <a href="/careers">Careers</a>
+                <a className="hover:text-pr hover:underline transition" href="/careers">Careers</a>
               </li>
               <li className="mb-2">
-                <a href="/volunteer">Volunteer</a>
+                <a className="hover:text-pr hover:underline transition" href="/volunteer">Volunteer</a>
               </li>
             </ul>
           </div>
