@@ -12,6 +12,7 @@ import HospitalLocator from "./pages/hospitallocator/HospitalLocator";
 import HospitalDetails from "./pages/hospitaldetails/HospitalDetails";
 import AppointmentBooking from "./pages/appointmentbooking/AppointmentBooking";
 import Telemedicine from "./pages/telemedicine/Telemedicine";
+import Blog from "./pages/blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: "telemedicine", element: <Telemedicine/> },
       { path: "support", element: <Support /> },
       { path: "about", element: <AboutUs /> },
+      { path: "blog", element: <Blog /> },
     ],
   },
   { path: "/login", element: <Login /> },

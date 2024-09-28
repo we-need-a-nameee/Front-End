@@ -14,3 +14,22 @@
   /* border: 1px solid var(--primary); */
   box-shadow: rgba(0, 0, 0, 0.308) 0px 4px 6px;
 }
+
+main,
+.blogs_section,
+.about_us_section,
+.feedback_section {
+  background-image: url(../../assets/blob-scene-haikei.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.about_us_section {
+  background-image: url(../../assets/blob-scene-haikei2.svg);
+}
+.feedback_section {
+  background-image: url(../../assets/circlescatterhaikei.svg);
+}
+.testmonials{
+  height: 80px;
+}
