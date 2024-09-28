@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import { GoogleLogin } from "react-google-login";
-import "./signup.css";
 import { GoogleLogin } from "@react-oauth/google";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./signup.css";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -26,6 +26,9 @@ export default function Signup() {
   const [patientPhotoPreview, setPatientPhotoPreview] = useState("");
   const [insurancePhotoPreview, setInsurancePhotoPreview] = useState("");
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Load stored data when component mounts
   useEffect(() => {
     const storedData = localStorage.getItem("userData");
     if (storedData) {
@@ -33,6 +36,7 @@ export default function Signup() {
     }
   }, []);
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     setFormData((prevData) => ({
@@ -51,8 +55,11 @@ export default function Signup() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate required fields
     if (!formData.agreeToTerms) {
       alert("You must agree to the terms and conditions to sign up.");
       return;
@@ -61,10 +68,14 @@ export default function Signup() {
     // Store user data in localStorage
     localStorage.setItem("userData", JSON.stringify(formData));
 
-    // Handle form submission logic here
+    // Redirect to login page
+    navigate("/login"); // Navigate to login page
+
+    // You can add additional form submission logic here, e.g., API call
     console.log("Form submitted:", formData);
   };
 
+  // Handle Google Sign-In success
   const handleGoogleSuccess = (response) => {
     const { email, name } = response.profileObj;
     setFormData((prevData) => ({
@@ -84,12 +95,13 @@ export default function Signup() {
     );
   };
 
+  // Handle Google Sign-In failure
   const handleGoogleFailure = (response) => {
     console.error("Google Sign-In Error:", response);
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
+    <div className="container d-flex justify-content-center align-items-center vh-20">
       <div
         className="card shadow-lg"
         style={{ maxWidth: "800px", width: "100%" }}
@@ -177,7 +189,7 @@ export default function Signup() {
             {/* Additional Information */}
             <div className="row mb-3">
               <div className="col-md-6">
-                <label htmlFor="gender" className="form-label">
+                <label htmlFor="gender" className="form-labe">
                   Gender
                 </label>
                 <select
