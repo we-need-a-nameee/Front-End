@@ -1,35 +1,12 @@
-.heroimg {
-  animation: scaling 1s infinite alternate cubic-bezier(0.47, 0, 0.745, 0.715);
-}
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
 
 .featuers > div > div {
   /* border: 1px solid var(--primary); */
   box-shadow: rgba(0, 0, 0, 0.308) 0px 4px 6px;
 }
 
-main,
-.blogs_section,
-.about_us_section,
-.feedback_section {
-  background-image: url(../../assets/blob-scene-haikei.svg);
+main {
+  background-image: url(../../assets/circlescatterhaikei.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-.about_us_section {
-  background-image: url(../../assets/blob-scene-haikei2.svg);
-}
-.feedback_section {
-  background-image: url(../../assets/circlescatterhaikei.svg);
-}
-.testmonials{
-  height: 80px;
 }

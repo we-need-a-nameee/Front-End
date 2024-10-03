@@ -1,9 +1,10 @@
 import React from "react";
-
+import hero1 from "../../assets/loc.png";
+import MainSecComp from "../../components/mainSecComp/MainSecComp";
 export default function AppointmentBooking() {
   return (
-    <div className="h-[50vh] bg-dark text-light flex justify-center items-center font-bold text-3xl ">
-      AppointmentBooking
-    </div>
+    <>
+      <MainSecComp hero={hero1} heading={'<p>Book with Ease.</p>'} />
+    </>
   );
 }

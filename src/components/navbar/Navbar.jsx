@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Disclosure,
   DisclosureButton,
@@ -17,14 +17,12 @@ import {
 import navCSS from "./navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
 import { TextField } from "@mui/material";
-
+import logo from "../../assets/logo.svg";
 const navigation = [
   { name: "Home", to: "/home" },
   { name: "Locator", to: "/hospitallocator" },
   { name: "Details", to: "/hospitaldetails" },
   { name: "Booking", to: "/appointmentbooking" },
-  { name: "Telemedicine", to: "/telemedicine" },
-  { name: "About", to: "/about" },
 ];
 
 // Utility function to conditionally apply classes
@@ -33,19 +31,32 @@ function classNames(...classes) {
 }
 export default function Navbar() {
   const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    window.addEventListener("scroll", navbarChangeBg);
+    return () => {
+      window.removeEventListener("scroll", navbarChangeBg);
+    };
+  }, []);
+
+  function navbarChangeBg() {
+    const navBar = document.getElementById("navBar");
+    // console.log(window.scrollY);
+    if (window.scrollY >= 80) {
+      navBar.classList.replace("bg-transparent", "bg-white");
+    } else {
+      navBar.classList.replace("bg-white", "bg-transparent");
+    }
+  }
   return (
     <>
-      <div className="bg-dark w-full text-light py-3">
-        <p className="max-w-[90rem] mx-auto font-light">
-          Learn what to expect when visiting the Emergency Department.{" "}
-          <Link to="/about" className="text-light hover:underline font-medium">
-            Learn more <i class="fa-solid fa-arrow-right ml-1"></i>
-          </Link>
-        </p>
-      </div>
-      <Disclosure as="nav" className="sticky top-0 left-0 w-full bg-white z-50">
-        <div className="mx-auto max-w-[90rem] px-2 sm:px-6 lg:px-8">
-          <div className="relative flex h-20 items-center justify-between">
+      <Disclosure
+        id="navBar"
+        as="nav"
+        className={`${navCSS.cg} fixed top-0 left-0 w-full bg-transparent  transition-all z-50`}
+      >
+        <div className="mx-auto max-w-[75rem] p-2 sm:px-6 lg:px-8">
+          <div className="relative flex items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
               {/* Mobile menu button*/}
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-pr hover:bg-pr hover:text-light focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pr transition">
@@ -65,14 +76,13 @@ export default function Navbar() {
               <div className="flex flex-shrink-0 items-center">
                 <Link
                   to="/home"
-                  className={`${navCSS.logo} bg-gradient-to-r from-pr to-dark text-transparent bg-clip-text text-4xl font-medium tracking-wide`}
-                  style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)" }}
+                  className="flex items-center justify-center sm:justify-start"
                 >
-                  WellNessWay
+                  <img src={logo} className="w-[70%]" alt="" />
                 </Link>
               </div>
-              <div className="hidden w-3/4  sm:mx-6 lg:block">
-                <div className="flex justify-evenly capitalize space-x-4">
+              <div className="hidden w-3/4  sm:mx-6 lg:block ">
+                <div className="flex h-full items-center justify-around capitalize space-x-4">
                   {navigation.map((item) => (
                     <NavLink
                       key={item.name}
@@ -215,22 +225,22 @@ export default function Navbar() {
         </div>
 
         <DisclosurePanel className="lg:hidden">
-          <div className="space-y-1 px-2 pb-3 pt-2">
+          <div className="flex flex-col space-y-1 px-2 pb-3 pt-2">
             {navigation.map((item) => (
-              <DisclosureButton
-                key={item.name}
-                as="a"
-                href={item.href}
-                aria-current={item.current ? "page" : undefined}
-                className={classNames(
-                  item.current
-                    ? "bg-pr text-light"
-                    : " hover:bg-pr hover:text-light transition",
-                  "block rounded-md px-3 py-2 text-base font-medium"
-                )}
-              >
-                {item.name}
-              </DisclosureButton>
+              <NavLink
+                      key={item.name}
+                      to={item.to}
+                      className={({ isActive }) =>
+                        classNames(
+                          isActive
+                            ? "bg-pr text-light" // use bg-primary and text-light
+                            : " hover:bg-pr hover:text-light transition", // use hover states accordingly
+                          "rounded-md px-3 py-2 text-[17px] font-medium cursor-pointer"
+                        )
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
             ))}
           </div>
         </DisclosurePanel>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import hero1 from "../../assets/hero2.svg";
+import hero1 from "../../assets/docs.png";
 import hero2 from "../../assets/hero.svg";
 import hero4 from "../../assets/hero7.svg";
 import avatarm from "../../assets/avatarm.svg";
@@ -10,6 +10,7 @@ import "../../assets/blob-scene-haikei2.svg";
 import homeCSS from "./homepage.module.css";
 import { Link } from "react-router-dom";
 import { AppleCardsCarouselDemo } from "../../components/appleCardscarouseldemo/AppleCardsCarouselDemo";
+import MainSecComp from "../../components/mainSecComp/MainSecComp";
 
 export default function HomePage() {
   useEffect(() => {
@@ -110,64 +111,25 @@ export default function HomePage() {
   ];
   return (
     <>
-      <main>
-        <div className=" xl:h-[100vh] max-w-[90rem] mx-auto p-2 flex flex-col xl:flex-row justify-between items-center">
-          <div
-            className={`${homeCSS.herocontent} py-3 h-full xl:w-1/2 flex flex-col justify-center  `}
-          >
-            <h3 className="italicfont text-dark text-lg font-normal underline mb-2 capitalize">
-              Your Health, Our Priority
-            </h3>
-            <h1 className="text-pr mb-5 text-6xl font-bold capitalize">
-              <p>Find Care Fast,</p>
-              <p>Discover Hospitals, Book Instantly.</p>
-              <p className="text-dark text-2xl mt-2 font-medium">
-                Anytime, Anywhere.
-              </p>
-              <p className="font-light w-3/4 text-sm text-dark mt-2">
-                Embrace a world of comprehensive healthcare where your
-                well-being takes center stage. At Meca, we're dedicated to
-                providing you with personalized and compassionate medical
-                services. Whether you're looking for a hospital, booking an
-                appointment, or seeking telemedicine services, we're here to
-                help you every step of the way.
-              </p>
-            </h1>
-            <div className="flex w-full justify-start space-x-4">
-              <Link to="hospitallocator" className="button2 text-light">
-                Find a Hospital
-              </Link>
-              <Link to="appointmentbooking" className="button1">
-                Book an Appointment
-              </Link>
-            </div>
-          </div>
-          <div className=" h-full">
-            <img
-              src={hero1}
-              className={`${homeCSS.heroimg} w-full block`}
-              alt=""
-            />
-          </div>
-        </div>
-      </main>
+      <MainSecComp hero={hero1} heading={`<p>Find Care Fast,</p><p>Discover Hospitals, Book Instantly.</p>`} />
+
       <section className="bg-gradient-to-l from-gr to-white py-20">
-        <h2 className="italicfont font-medium text-pr text-xl underline text-center mx-auto">
+        <h2 className=" font-medium text-pr text-xl underline text-center mx-auto">
           Our Key Features
         </h2>
-        <p className="text-center text-dark  text-4xl mb-5 mx-auto max-w-3xl">
+        <p className="text-center text-da  text-4xl mb-5 mx-auto max-w-3xl">
           We Serve In Different
           <span className="font-bold ml-1"> Areas For Our Patients</span>
         </p>
-        <div className={`${homeCSS.featuers} max-w-[90rem] mx-auto row`}>
+        <div className={`${homeCSS.featuers} max-w-[75rem] mx-auto row`}>
           {features.map((feature, index) => {
             return (
-              <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+              <div key={index} className="col-xl-3 col-lg-3 col-md-6 col-12">
                 <div
                   className={`rotate-[${feature.deg}] hover:rotate-0 transition-all rounded-2xl h-[420px] p-3 flex flex-col justify-around items-center text-center`}
                 >
                   <i class={`${feature.icon} block text-pr text-7xl`}></i>
-                  <h3 className="font-medium text-lg text-dark">
+                  <h3 className="font-medium text-lg text-da">
                     {feature.title}
                   </h3>
                   <p>{feature.desc}</p>
@@ -184,19 +146,19 @@ export default function HomePage() {
         </div>
       </section>
       <section class={`${homeCSS.about_us_section} py-5`}>
-        <div className="max-w-[90rem] mx-auto p-2 flex justify-between items-center">
+        <div className="max-w-[75rem] mx-auto p-2 flex justify-between items-center">
           <div class="flex flex-col justify-between items-center md:flex-row">
             <div class="w-full md:w-1/2">
-              <h2 className="italicfont font-medium text-pr text-xl underline">
+              <h2 className=" font-medium text-pr text-xl underline">
                 About Us
               </h2>
-              <p class="text-dark text-4xl mb-3">
+              <p class="text-da text-4xl mb-3">
                 Who <span className="font-bold">We Are</span> & What We
                 <span className="font-bold"> Stand For</span>
               </p>
               <p className="font-light mb-3">
-                At <span className="italicfont text-pr">WellNessWay</span>, we
-                are committed to providing you with the best healthcare services
+                At <span className=" text-pr">WellNessWay</span>, we are
+                committed to providing you with the best healthcare services
                 available. Our mission is to connect patients with top
                 healthcare providers and make quality medical care accessible
                 and convenient for everyone.
@@ -250,7 +212,7 @@ export default function HomePage() {
         </div>
       </section>
       <section id="countersec" className="bg-gradient-to-r from-gr to-white">
-        <div className="py-[100px] max-w-[90rem] mx-auto row flex justify-between items-center">
+        <div className="py-[100px] max-w-[75rem] mx-auto row flex justify-between items-center">
           {numbers.map((number, index) => {
             return (
               <div key={index} className="col-lg-3 col-md-6 col-12">
@@ -263,7 +225,7 @@ export default function HomePage() {
                   <div>
                     <h2
                       data-target={number.toNum}
-                      className="counter text-dark text-3xl font-bold"
+                      className="counter text-da text-3xl font-bold"
                     >
                       {number.num}
                     </h2>
@@ -276,7 +238,7 @@ export default function HomePage() {
         </div>
       </section>
       <section className={`${homeCSS.blogs_section}`}>
-        <div className="max-w-[90rem] mx-auto row">
+        <div className="max-w-[75rem] mx-auto row">
           <div className="py-10 col-lg-6 col-12">
             <img src={hero4} alt="" />
           </div>
@@ -287,13 +249,13 @@ export default function HomePage() {
       </section>
 
       <section className={`${homeCSS.feedback_section} py-16`}>
-        <h2 className="italicfont text-center font-medium text-pr text-xl underline">
+        <h2 className=" text-center font-medium text-pr text-xl underline">
           Testmonials
         </h2>
-        <p class="text-dark text-center font-bold text-4xl mb-5">
+        <p class="text-da text-center font-bold text-4xl mb-5">
           What clients <span className="font-normal">say about us</span>
         </p>
-        <div className="max-w-[90rem] mx-auto row gap-y-2">
+        <div className="max-w-[75rem] mx-auto row gap-y-2">
           <div className="col-md-6 col-12">
             <div className="bg-white hover:shadow-2xl hover:scale-105 transition-all p-3 rounded-xl flex justify-start items-center">
               <img src={avatarm} alt="user" className="w-[10%] block mr-2" />
@@ -310,14 +272,14 @@ export default function HomePage() {
                   earum amet inventore, ex, mollitia repellat fuga in nulla
                   libero quia quidem! Velit iusto, quo ullam incidunt fuga
                   sapiente!`
-                  
-                </p><button
+                </p>
+                <button
                   id="readmore"
-                    class="bg-transparent border-none text-pr pl-9"
-                    onClick={readMore}
-                  >
-                    Read More
-                  </button>
+                  class="bg-transparent border-none text-pr pl-9"
+                  onClick={readMore}
+                >
+                  Read More
+                </button>
               </div>
             </div>
           </div>
