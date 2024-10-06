@@ -105,7 +105,7 @@ function Login() {
             
             {/* Right side with login form */}
             <div className="flex flex-col justify-center items-center w-full lg:w-1/2 px-8 lg:px-16 bg-white">
-                <h2 className="text-4xl font-extrabold mb-6 text-blue-400">Welcome Back!</h2>
+                <h2 className="text-4xl font-extrabold mb-6 text-pr">Welcome Back!</h2>
                 <p className="mb-8 text-gray-500 text-center text-sm">
                     Please sign in to your account to continue
                 </p>
@@ -117,7 +117,7 @@ function Login() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                             placeholder="you@gmail.com"
                             required
                         />
@@ -129,7 +129,7 @@ function Login() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                             placeholder="••••••••"
                             required
                         />
@@ -137,13 +137,13 @@ function Login() {
 
                     <button 
                         type="submit" 
-                        className="w-full bg-blue-400 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out font-semibold">
+                        className="w-full bg-c3 text-white py-3 rounded-lg hover:bg-pr transition duration-200 ease-in-out font-semibold">
                         Sign In
                     </button>
                 </form>
 
                 <div className="mt-6 text-sm text-gray-500">
-                    Don't have an account? <a href="/Signup" className="text-blue-400 hover:underline">Sign Up</a>
+                    Don't have an account? <a href="/Signup" className="text-pr hover:underline">Sign Up</a>
                 </div>
             </div>
         </div>

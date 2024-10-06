@@ -472,7 +472,7 @@ const Signup = () => {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
@@ -486,7 +486,7 @@ const Signup = () => {
                       value="Male"
                       checked={gender === "Male"}
                       onChange={(e) => setGender(e.target.value)}
-                      className="form-radio h-4 w-4 text-blue-600"
+                      className="form-radio h-4 w-4 text-pr"
                     />
                     <span className="ml-2">Male</span>
                   </label>
@@ -497,7 +497,7 @@ const Signup = () => {
                       value="Female"
                       checked={gender === "Female"}
                       onChange={(e) => setGender(e.target.value)}
-                      className="form-radio h-4 w-4 text-blue-600"
+                      className="form-radio h-4 w-4 text-pr"
                     />
                     <span className="ml-2">Female</span>
                   </label>
@@ -510,11 +510,11 @@ const Signup = () => {
                 type="date"
                 value={birthdate}
                 onChange={(e) => setBirthdate(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
-            <button onClick={nextStep} className="w-full bg-blue-400 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+            <button onClick={nextStep} className="w-full bg-c3 text-white py-2 rounded-lg hover:bg-pr transition duration-200">
               Next
             </button>
           </div>
@@ -529,7 +529,7 @@ const Signup = () => {
                     <select
                         value={bloodtype}
                         onChange={(e) => setBloodType(e.target.value)}
-                        className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700">
+                        className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr">
                           required
                         <option value="" disabled>Select Blood Type</option>
                         <option value="A+">A+</option>
@@ -550,7 +550,7 @@ const Signup = () => {
                 type="text"
                 value={medHistory}
                 onChange={(e) => setMedHistory(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
@@ -560,7 +560,7 @@ const Signup = () => {
                 type="text"
                 value={allergies}
                 onChange={(e) => setAllergies(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
@@ -570,7 +570,7 @@ const Signup = () => {
                 type="text"
                 value={medications}
                 onChange={(e) => setMedications(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
@@ -580,7 +580,7 @@ const Signup = () => {
                 type="text"
                 value={insurance}
                 onChange={(e) => setInsurance(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 required
               />
             </div>
@@ -588,7 +588,7 @@ const Signup = () => {
               <button onClick={prevStep} className="bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-200">
                 Back
               </button>
-              <button onClick={nextStep} className="bg-blue-400 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+              <button onClick={nextStep} className="bg-c3 text-white py-2 px-4 rounded-lg hover:bg-pr transition duration-200">
                 Next
               </button>
             </div>
@@ -604,7 +604,7 @@ const Signup = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 placeholder="you@gmail.com"
                 required
               />
@@ -615,7 +615,7 @@ const Signup = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pr"
                 placeholder="••••••••"
                 required
               />
@@ -645,7 +645,7 @@ const Signup = () => {
         <div className="mt-4">
   <p className="text-sm text-gray-600">
     Already have an account? 
-    <a href="/login" className="text-blue-600 hover:underline"> Log In</a>
+    <a href="/login" className="text-pr hover:underline"> Log In</a>
   </p>
 </div>
       </div>
