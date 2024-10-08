@@ -10,6 +10,7 @@ import Login from "./pages/login/Login";
 import Support from "./pages/support/Support";
 import HospitalLocator from "./pages/hospitallocator/HospitalLocator";
 import HospitalDetails from "./pages/hospitaldetails/HospitalDetails";
+import Hospitals from "./pages/hospitaldetails/Hospitals";
 import AppointmentBooking from "./pages/appointmentbooking/AppointmentBooking";
 import Telemedicine from "./pages/telemedicine/Telemedicine";
 import Blog from "./pages/blog/Blog";
@@ -17,39 +18,42 @@ import Contact from "./pages/Contact/Contact";
 import Privacy from "./pages/Privacy/privacy";
 import FAQ from "./pages/faq/faq";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LayOut />,
-    children: [
-      { path: "", element: <HomePage /> },
-      { path: "home", element: <HomePage /> },
-      { path: "userprofile", element: <UserProfile /> },
-      { path: "patientreviews", element: <PatientReviews /> },
-      { path: "hospitallocator", element: <HospitalLocator /> },
-      { path: "hospitaldetails", element: <HospitalDetails /> },
-      { path: "appointmentbooking", element: <AppointmentBooking /> },
-      { path: "telemedicine", element: <Telemedicine/> },
-      { path: "support", element: <Support /> },
-      { path: "about", element: <AboutUs /> },
-      { path: "blog", element: <Blog /> },
-      { path: "contact", element: <Contact /> },
-      { path: "privacy", element: <Privacy /> },
-      { path: "faq", element: <FAQ /> },
+const router = createBrowserRouter([{
+        path: "/",
+        element: < LayOut / > ,
+        children: [
+            { path: "", element: < HomePage / > },
+            { path: "home", element: < HomePage / > },
+            { path: "userprofile", element: < UserProfile / > },
+            { path: "patientreviews", element: < PatientReviews / > },
+            { path: "hospitallocator", element: < HospitalLocator / > },
+            { path: "hospitaldetails", element: < HospitalDetails / > },
+            { path: "hospitals", element: < Hospitals / > },
+            { path: "appointmentbooking", element: < AppointmentBooking / > },
+            { path: "telemedicine", element: < Telemedicine / > },
+            { path: "support", element: < Support / > },
+            { path: "about", element: < AboutUs / > },
+            { path: "blog", element: < Blog / > },
+            { path: "contact", element: < Contact / > },
+            { path: "privacy", element: < Privacy / > },
+            { path: "faq", element: < FAQ / > },
 
 
 
-    ],
-  },
-  { path: "/login", element: <Login /> },
-  { path: "/signup", element: <Signup /> },
+        ],
+    },
+    { path: "/login", element: < Login / > },
+    { path: "/signup", element: < Signup / > },
 ]);
+
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+    return ( <
+        >
+        <
+        RouterProvider router = { router }
+        /> < /
+        >
+    );
 }
 
 export default App;

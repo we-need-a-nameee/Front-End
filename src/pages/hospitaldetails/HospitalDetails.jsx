@@ -6,7 +6,7 @@ import hero1 from "../../assets/selt.png";
 import hero2 from "../../assets/avatarm.svg";
 import MainSecComp from "../../components/mainSecComp/MainSecComp";
 
-
+// Doctors ابوس ايدك يا عمر الفيلات انا سايبها متلغبطه دلوقتي بس شغاله بسببك ارجوك كلمني قبل ما تلعب 😭
 
 
 const doctorData = [
@@ -94,7 +94,7 @@ export default function HospitalDetails() {
 
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link mr-3" to="/hospitaldetails">
+              <Link className="nav-link mr-3" to="/Hospitals">
                 Hospitals
               </Link>
             </li>

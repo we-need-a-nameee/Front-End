@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./hospitallocator.css";
 import hero1 from "../../assets/loc.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -6,13 +6,10 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import MainSecComp from "../../components/mainSecComp/MainSecComp";
 
-
-
-
 const initialHospitals = [
   {
     name: "Hospital A",
-    lat: 30.0444,
+    lat: 30.0475,
     lng: 31.2357,
     icuAvailability: 5,
     services: ["Cardiology", "Emergency"],
@@ -31,33 +28,104 @@ const initialHospitals = [
     icuAvailability: 0,
     services: ["Pediatrics", "Orthopedics"],
   },
+  {
+    name: "Doctor Medical Center",
+    lat: 30.0475,
+    lng: 31.2357,
+    icuAvailability: 3,
+    services: [],
+    link: "https://healtheg.com/ar/Item/1047/الطبيب-ميديكال-سنتر",
+    address: "3, Doctor St., Cairo-New Cairo",
+    photo: "https://healtheg.com//content/images/healtheg_300.png",
+    contact: "0226161840 - +20226175241",
+  },
+  {
+    name: "Psychological Clinic - Dr. Manal Al-Daghar",
+    lat: 30.0995671,
+    lng: 31.3178072,
+    icuAvailability: 0,
+    services: [],
+    link: "https://healtheg.com/ar/Item/1161/العيادة-النفسية---د-منال-الدغار",
+    address: "25 Andalus St., Alexandria-Abrahamic",
+    photo: "https://healtheg.com//content/images/healtheg_300.png",
+    contact: "035905175 - 01006313619",
+  },
+  {
+    name: "Eye Consultant Center",
+    link: "https://healtheg.com/ar/Item/1667/المركز-الاستشارى-للعيون",
+    address: "Neighboring, New Eastern Al-Salihiya",
+    icuAvailability: "N/A",
+    services: [],
+    photo: "https://healtheg.com//content/images/healtheg_300.png",
+    contact: "0553200061 - 0553203161",
+    lat: 11.42494275,
+    lng: 124.8479050919301,
+  },
+  {
+    name: "Health Center - Bulaq Dakrur",
+    link: "https://healtheg.com/ar/Item/1296/المركز-الصحى---بولاق-الدكرور",
+    address: "3 Sharif St., Giza-Bulaq Dakrur",
+    icuAvailability: "N/A",
+    services: [],
+    photo: "https://healtheg.com//content/images/healtheg_300.png",
+    contact: "0237388986",
+    lat: -27.3868784,
+    lng: 152.9961992,
+  },
+  {
+    name: "The General Health Center - Kafr Tahrams",
+    link: "https://healtheg.com/ar/Item/1552/المركز-الصحى-العام---كفر-طهرمس",
+    address: "Queen St., Giza-Bulaq Dakrur",
+    icuAvailability: "N/A",
+    services: [],
+    photo: "https://healtheg.com//content/images/healtheg_300.png",
+    contact: "0237219038",
+    lat: -27.4655959,
+    lng: 153.0303842,
+  },
 ];
+
 export default function HospitalLocator() {
+  const [hospitals, setHospitals] = useState(initialHospitals); // Initial data
+  const [filterLocation, setFilterLocation] = useState(""); // Location filter
+  const [filterService, setFilterService] = useState(""); // Service filter
+  const [userLocation, setUserLocation] = useState([30.0444, 31.2357]); // Default location
 
-  const [hospitals, setHospitals] = useState(initialHospitals); // البيانات الأساسية
-  const [filterLocation, setFilterLocation] = useState(""); // الفلتر للموقع
-  const [filterService, setFilterService] = useState(""); // الفلتر للخدمات
+  useEffect(() => {
+    // Get user's current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation([position.coords.latitude, position.coords.longitude]);
+        },
+        (error) => {
+          console.error("Error getting location: ", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
-  // تصفية المستشفيات حسب الفلاتر المدخلة
-  const filteredHospitals = hospitals.filter((hospital) => {
-    return (
-      (filterLocation === "" ||
-        hospital.name.toLowerCase().includes(filterLocation.toLowerCase())) &&
-      (filterService === "" || hospital.services.includes(filterService))
-    );
-  });
-
+  // Display all hospitals
+  const filteredHospitals = hospitals;
 
   const customIcon = L.icon({
-    iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png", // الرابط إلى صورة الأيقونة
-    iconSize: [25, 41], // حجم الأيقونة
-    iconAnchor: [12, 41], // النقطة التي تشير إلى الموقع
-    popupAnchor: [0, -41], // موقع النافذة المنبثقة
+    iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [0, -41],
   });
+
+  const userIcon = L.icon({
+    iconUrl: "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon.png",
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [0, -41],
+  });
+
   return (
     <>
-      
-
       <MainSecComp
         hero={hero1}
         heading={`<p>Find Your Nearest Hospital,</p>
@@ -67,7 +135,7 @@ export default function HospitalLocator() {
       <div style={styles.container}>
         <h1>Search for Hospitals</h1>
 
-        {/* فلتر حسب الموقع */}
+        {/* Location filter */}
         <input
           type="text"
           placeholder="Search by hospital name"
@@ -76,7 +144,7 @@ export default function HospitalLocator() {
           style={styles.input}
         />
 
-        {/* فلتر حسب نوع الخدمة */}
+        {/* Service filter */}
         <select
           value={filterService}
           onChange={(e) => setFilterService(e.target.value)}
@@ -90,9 +158,14 @@ export default function HospitalLocator() {
           <option value="Orthopedics">Orthopedics</option>
         </select>
 
-        {/* الخريطة */}
-        <MapContainer center={[30.0444, 31.2357]} zoom={13} style={styles.map}>
+        {/* Map */}
+        <MapContainer center={userLocation} zoom={13} style={styles.map}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker icon={userIcon} position={userLocation}>
+            <Popup>
+              You are here
+            </Popup>
+          </Marker>
           {filteredHospitals.map((hospital, index) => (
             <Marker
               icon={customIcon}
@@ -106,7 +179,7 @@ export default function HospitalLocator() {
           ))}
         </MapContainer>
 
-        {/* قائمة المستشفيات */}
+        {/* Hospital list */}
         <ul style={styles.hospitalList}>
           {filteredHospitals.length === 0 ? (
             <li>No hospitals found</li>
@@ -128,6 +201,7 @@ export default function HospitalLocator() {
     </>
   );
 }
+
 const styles = {
   container: {
     padding: "2rem",
