@@ -10,16 +10,16 @@ export default function AboutUs() {
         <p className="lead">Your trusted partner in healthcare.</p>
       </div>
 
+      {/* Our Mission */}
       <div className="row mb-4">
-        {/* Our Mission */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-primary shadow-sm mb-4">
             <div className="card-header bg-primary text-white">
               <h4 className="mb-0">Our Mission</h4>
             </div>
             <div className="card-body">
               <p>
-                At WellNessWay, we are dedicated to revolutionizing the way you
+                At MediConnect, we are dedicated to revolutionizing the way you
                 access healthcare services. Our mission is to make finding and
                 managing healthcare as seamless and stress-free as possible,
                 putting your wellness at the forefront of everything we do.
@@ -29,9 +29,9 @@ export default function AboutUs() {
         </div>
       </div>
 
+      {/* Our Vision */}
       <div className="row mb-4">
-        {/* Our Vision */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-success shadow-sm mb-4">
             <div className="card-header bg-success text-white">
               <h4 className="mb-0">Our Vision</h4>
@@ -49,9 +49,9 @@ export default function AboutUs() {
         </div>
       </div>
 
+      {/* Our Services */}
       <div className="row mb-4">
-        {/* Our Services */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-info shadow-sm mb-4">
             <div className="card-header bg-info text-white">
               <h4 className="mb-0">Our Services</h4>
@@ -84,9 +84,9 @@ export default function AboutUs() {
         </div>
       </div>
 
+      {/* Get in Touch */}
       <div className="row mb-4">
-        {/* Get in Touch */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-secondary shadow-sm mb-4">
             <div className="card-header bg-secondary text-white">
               <h4 className="mb-0">Get in Touch</h4>
@@ -105,7 +105,7 @@ export default function AboutUs() {
                 <strong>Join Us on This Journey</strong>
                 <br />
                 Together, we can make healthcare more accessible and effective.
-                Explore WellNessWay and discover how we can support your health
+                Explore MediConnect and discover how we can support your health
                 and wellness.
               </p>
             </div>
@@ -113,9 +113,9 @@ export default function AboutUs() {
         </div>
       </div>
 
+      {/* Become a Sponsor */}
       <div className="row mb-4">
-        {/* Become a Sponsor */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-danger shadow-sm mb-4">
             <div className="card-header bg-danger text-white">
               <h4 className="mb-0">Become a Sponsor</h4>
@@ -124,7 +124,7 @@ export default function AboutUs() {
               <p>
                 We invite organizations and individuals to support our mission
                 of improving healthcare accessibility and quality. Sponsoring
-                WellNessWay provides a unique opportunity to align your brand
+                MediConnect provides a unique opportunity to align your brand
                 with a forward-thinking platform dedicated to wellness and
                 innovation.
               </p>
@@ -157,16 +157,16 @@ export default function AboutUs() {
         </div>
       </div>
 
+      {/* Our Future */}
       <div className="row mb-4">
-        {/* Our Future */}
-        <div className="col-md-12">
+        <div className="col-lg-8 col-md-10 mx-auto">
           <div className="card border-dark shadow-sm mb-4">
             <div className="card-header bg-dark text-light">
               <h4 className="mb-0">Our Future</h4>
             </div>
             <div className="card-body">
               <p>
-                We’re just getting started! At WellNessWay, our vision extends
+                We’re just getting started! At MediConnect, our vision extends
                 beyond our current services. In the coming years, we plan to
                 expand our platform to include:
               </p>
