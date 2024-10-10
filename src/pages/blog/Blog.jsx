@@ -42,8 +42,194 @@ export default function Blog() {
       comments: [""],
       newComment: "",
     },
+    {
+      id: 4,
+      content:
+        "Understanding mental health is crucial for overall well-being. It's not just the absence of illness; it's a state of well-being that allows individuals to cope with stress, work productively, and contribute to their community.",
+      title: "The Importance of Mental Health",
+      author: { name: "Dr. Emily Carter", profession: "Psychiatrist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "March 5, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 5,
+      content:
+        "Physical activity can help reduce the symptoms of anxiety and depression. Regular exercise increases the production of endorphins, which are chemicals in the brain that act as natural painkillers and mood elevators.",
+      title: "How Exercise Can Improve Your Mood",
+      author: { name: "Dr. Alex Johnson", profession: "Fitness Expert", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "April 1, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 6,
+      content:
+        "Nutrition plays a significant role in mental health. Certain nutrients, like omega-3 fatty acids, vitamins, and minerals, can positively influence your mood and mental state.",
+      title: "Nutrition and Mental Wellness",
+      author: { name: "Dr. Lisa Raymond", profession: "Nutritionist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "May 15, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 7,
+      content:
+        "Sleep is a vital component of overall health. Poor sleep can lead to various health issues, including obesity, heart disease, and depression. It's essential to prioritize sleep hygiene.",
+      title: "The Impact of Sleep on Health",
+      author: { name: "Dr. Mark Harrison", profession: "Sleep Specialist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "June 20, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 8,
+      content:
+        "Mindfulness and meditation can reduce stress, improve emotional health, and enhance self-awareness. These practices help individuals remain present and engaged in their lives.",
+      title: "Benefits of Mindfulness and Meditation",
+      author: { name: "Dr. Sarah Thompson", profession: "Mindfulness Coach", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "July 10, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 9,
+      content:
+        "Chronic stress can have serious implications for physical and mental health. Learning effective stress management techniques is essential for leading a balanced life.",
+      title: "Managing Chronic Stress",
+      author: { name: "Dr. Rebecca Collins", profession: "Clinical Psychologist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "August 22, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 10,
+      content:
+        "Healthy relationships contribute to emotional and mental well-being. Building strong connections with others can provide support and improve overall life satisfaction.",
+      title: "The Role of Relationships in Mental Health",
+      author: { name: "Dr. James Foster", profession: "Counselor", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "September 15, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 11,
+      content:
+        "The benefits of laughter are well-documented. Laughter can decrease stress hormones, boost mood, and strengthen the immune system.",
+      title: "Laughter: The Best Medicine",
+      author: { name: "Dr. Carol Grant", profession: "Health Psychologist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "October 1, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 12,
+      content:
+        "Art therapy is a therapeutic technique that uses creative expression to help individuals improve their mental, emotional, and physical well-being.",
+      title: "Exploring Art Therapy",
+      author: { name: "Dr. Jenny Lee", profession: "Art Therapist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "November 10, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 13,
+      content:
+        "Music can have a profound impact on emotions and mental health. Listening to your favorite songs can elevate your mood and bring comfort during tough times.",
+      title: "The Healing Power of Music",
+      author: { name: "Dr. Nick Turner", profession: "Music Therapist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "December 5, 2023",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 14,
+      content:
+        "Gratitude practices can enhance well-being and lead to greater happiness. Keeping a gratitude journal is an effective way to cultivate a positive mindset.",
+      title: "The Benefits of Gratitude",
+      author: { name: "Dr. Molly Anderson", profession: "Life Coach", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "January 20, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 15,
+      content:
+        "Nature has a calming effect on the mind. Spending time outdoors can help reduce stress, improve mood, and increase overall well-being.",
+      title: "The Healing Power of Nature",
+      author: { name: "Dr. Brian Matthews", profession: "Environmental Psychologist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "February 15, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 16,
+      content:
+        "Digital detox can help improve mental clarity and reduce anxiety. Taking breaks from screens allows for more mindfulness and connection to the real world.",
+      title: "The Benefits of Digital Detox",
+      author: { name: "Dr. Claire Johnson", profession: "Tech Specialist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "March 12, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 17,
+      content:
+        "The importance of self-care cannot be overstated. Taking time for yourself can rejuvenate your spirit and enhance your ability to cope with stress.",
+      title: "Self-Care: A Necessity, Not a Luxury",
+      author: { name: "Dr. Natalie Rivers", profession: "Wellness Coach", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "April 25, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 18,
+      content:
+        "Coping strategies are essential for managing stress and challenges in life. Effective coping techniques can lead to better mental health outcomes.",
+      title: "Developing Healthy Coping Strategies",
+      author: { name: "Dr. Victoria Ellis", profession: "Clinical Psychologist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "May 30, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 19,
+      content:
+        "Understanding and accepting your emotions can lead to healthier relationships and improved emotional well-being. Emotional intelligence is key.",
+      title: "The Importance of Emotional Intelligence",
+      author: { name: "Dr. Simon Walsh", profession: "Psychotherapist", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "June 18, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+    {
+      id: 20,
+      content:
+        "Effective communication skills are crucial for personal and professional success. Being able to convey your thoughts clearly can enhance relationships and reduce conflicts.",
+      title: "The Power of Communication",
+      author: { name: "Dr. Angela Green", profession: "Communication Expert", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "July 4, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
   ]);
-
   const [newPostContent, setNewPostContent] = useState("");
   const [newPostImage, setNewPostImage] = useState("");
   const [newPostFile, setNewPostFile] = useState(null);
