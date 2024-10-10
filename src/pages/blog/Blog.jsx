@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import gluten from "D:/Depi/MediConnect/Front-End/src/assets/gluten.jpg"
 export default function Blog() {
   const navigate = useNavigate(); 
   const [posts, setPosts] = useState([
@@ -37,7 +36,7 @@ export default function Blog() {
       content:
         "Myth: Cutting out gluten means cutting out carbs.\nFact: Not all carbohydrates contain gluten. Gluten is a protein found in wheat, barley, rye, and related grains like spelt and farro. Many other grain foods such as rice, oats, and quinoa are naturally gluten-free. Carbohydrate-rich foods like fruit, plain yogurt, and vegetables like potatoes and corn don’t naturally contain gluten either.",
       title: "Myths and Facts About Going Gluten-Free",
-      author: { name: "Sally Kuzemchak", profession: "Doctor", imageUrl: gluten },
+      author: { name: "Sally Kuzemchak", profession: "Doctor", imageUrl: "https://via.placeholder.com/300x200"},
       date: "August 12, 2022",
       reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
       comments: [""],
