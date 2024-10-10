@@ -86,13 +86,12 @@ const initialHospitals = [
 ];
 
 export default function HospitalLocator() {
-  const [hospitals, setHospitals] = useState(initialHospitals); // Initial data
-  const [filterLocation, setFilterLocation] = useState(""); // Location filter
-  const [filterService, setFilterService] = useState(""); // Service filter
-  const [userLocation, setUserLocation] = useState([30.0444, 31.2357]); // Default location
+  const [hospitals, setHospitals] = useState(initialHospitals);
+  const [filterLocation, setFilterLocation] = useState("");
+  const [filterService, setFilterService] = useState("");
+  const [userLocation, setUserLocation] = useState([30.0444, 31.2357]);
 
   useEffect(() => {
-    // Get user's current location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -107,7 +106,6 @@ export default function HospitalLocator() {
     }
   }, []);
 
-  // Display all hospitals
   const filteredHospitals = hospitals;
 
   const customIcon = L.icon({
@@ -127,15 +125,14 @@ export default function HospitalLocator() {
   return (
     <>
       <MainSecComp
+       className="relative w-full h-96 md:h-auto md:max-h-screen overflow-hidden"
         hero={hero1}
-        heading={`<p>Find Your Nearest Hospital,</p>
-              <p>Book with Ease.</p>`}
+        heading={`<p>Find Your Nearest Hospital,</p><p>Book with Ease.</p>`}
       />
 
-      <div style={styles.container}>
+      <div className=" relative mt-4" style={styles.container}>
         <h1>Search for Hospitals</h1>
 
-        {/* Location filter */}
         <input
           type="text"
           placeholder="Search by hospital name"
@@ -144,7 +141,6 @@ export default function HospitalLocator() {
           style={styles.input}
         />
 
-        {/* Service filter */}
         <select
           value={filterService}
           onChange={(e) => setFilterService(e.target.value)}
@@ -158,13 +154,10 @@ export default function HospitalLocator() {
           <option value="Orthopedics">Orthopedics</option>
         </select>
 
-        {/* Map */}
         <MapContainer center={userLocation} zoom={13} style={styles.map}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker icon={userIcon} position={userLocation}>
-            <Popup>
-              You are here
-            </Popup>
+            <Popup>You are here</Popup>
           </Marker>
           {filteredHospitals.map((hospital, index) => (
             <Marker
@@ -179,28 +172,30 @@ export default function HospitalLocator() {
           ))}
         </MapContainer>
 
-        {/* Hospital list */}
-        <ul style={styles.hospitalList}>
+        <div style={styles.hospitalCards}>
           {filteredHospitals.length === 0 ? (
-            <li>No hospitals found</li>
+            <div>No hospitals found</div>
           ) : (
             filteredHospitals.map((hospital, index) => (
-              <li key={index} style={styles.hospitalItem}>
-                <strong>{hospital.name}</strong> - ICU Beds:{" "}
-                {hospital.icuAvailability}
-                <br />
-                Services: {hospital.services.join(", ")}
-                <br />
+              <div key={index} style={styles.card}>
+                <strong>{hospital.name}</strong>
+                <p>ICU Beds: {hospital.icuAvailability}</p>
+                <p>Services: {hospital.services.join(", ")}</p>
+                <div className="font-bold text-l mb-2 text-pr">
                 <a href={`/hospital/${hospital.name}`}>More Info</a> |{" "}
+                </div>
+                <div className="font-bold text-l mb-2 text-pr">
                 <a href={`/book/${hospital.name}`}>Book Appointment</a>
-              </li>
+                </div>
+              </div>
             ))
           )}
-        </ul>
+        </div>
       </div>
     </>
   );
 }
+
 
 const styles = {
   container: {
@@ -224,16 +219,32 @@ const styles = {
     height: "400px",
     width: "100%",
     marginBottom: "2rem",
+    flexGrow: 1,
   },
-  hospitalList: {
-    listStyleType: "none",
-    padding: 0,
+  hospitalCards: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    gap: "1rem",
   },
-  hospitalItem: {
-    marginBottom: "1.5rem",
+  card: {
+    flex: "1 1 calc(33.333% - 1rem)", 
     padding: "1rem",
     backgroundColor: "#F8F9FA",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    textAlign: "center",
+    minWidth: "280px", 
+    maxWidth: "100%",
+  },
+  "@media (max-width: 768px)": {
+    card: {
+      flex: "1 1 calc(50% - 1rem)", 
+    },
+  },
+  "@media (max-width: 480px)": {
+    card: {
+      flex: "1 1 100%", 
+    },
   },
 };

@@ -1,17 +1,21 @@
 import React from 'react';
 import pic from "../../assets/circlescatterhaikei.svg";  
-
+import contactPic from "../../assets/contact2.jpg"
 function Contact() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center py-10 relative">
 
-            <div className="absolute top-0 left-0 w-full flex justify-center">
-                <img src={pic} alt="Background Design" className="w-full max- object-cover h-64" />
+            <div className="absolute top-0 left-0 w-full h-auto justify-center">
+                <img src={pic} alt="Background Design" className="w-full object-cover h-64" />
+
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-da mt-2">
                     <h1 className="text-5xl font-bold">Contact Us</h1>
                     <p className="text-lg mt-1">We are here to assist you.</p>
+
                 </div>
             </div>
+            {/* <img src={contactPic} alt="contact Design" className="w-1/4 object-right h-64" /> */}
+
             
             <div className="w-full max-w-4xl bg-white p-10 rounded-lg shadow-md z-10 relative mt-40"> 
                 <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
