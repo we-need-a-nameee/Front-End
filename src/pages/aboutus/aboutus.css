@@ -1,0 +1,12 @@
+.card {
+    border-radius: 15px;
+}
+
+.card-header {
+    border-bottom: 2px solid #fff;
+}
+
+h4 {
+    font-weight: 600;
+    /* Custom font weight for headings */
+}

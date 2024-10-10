@@ -1,256 +1,258 @@
-// src/pages/Blog.js
-
-import React from "react";
-import "./blog.css"; // Import your custom CSS file
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import gluten from "D:/Depi/MediConnect/Front-End/src/assets/gluten.jpg"
 export default function Blog() {
+  const navigate = useNavigate(); 
+  const [posts, setPosts] = useState([
+    {
+      id: 1,
+      content:
+        "As a physician, I often see patients searching for effective ways to manage their pain. While medications and therapies are often the focus, an increasingly important factor is emerging: the role of diet and gut health in pain management.",
+      title: "How Your Diet Affects Your Pain",
+      author: { name: "Dr. Anita Gupta", profession: "PharmD", imageUrl: "https://via.placeholder.com/300x300" },
+      date: "October 8, 2024",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [
+        "Omar: Informative!",
+        "Marina: One of the best articles I have ever read.",
+      ],
+      newComment: "",
+    },
+    {
+      id: 2,
+      content:
+        "“You’re going in through the exit, idiot.” These seven words from a stranger were enough to ruin the rest of the day for John. He’d just enjoyed a lovely week at the beach with his family and had stopped at a department store on the last morning of their vacation. John was in a great mood just before this incident, and then wound up fuming for the entire 6-hour car ride home, unable to let it go.",
+      title: "Don't Let Other People Ruin Your Day",
+      author: { name: "Dr. Seth J. Gillihan", profession: "Therapist", imageUrl: "https://via.placeholder.com/300x200" },
+      date: "July 14, 2021",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [
+        "Omar: Insightful!",
+        "Ahmed: Great Article.",
+      ],
+      newComment: "",
+    },
+    {
+      id: 3,
+      content:
+        "Myth: Cutting out gluten means cutting out carbs.\nFact: Not all carbohydrates contain gluten. Gluten is a protein found in wheat, barley, rye, and related grains like spelt and farro. Many other grain foods such as rice, oats, and quinoa are naturally gluten-free. Carbohydrate-rich foods like fruit, plain yogurt, and vegetables like potatoes and corn don’t naturally contain gluten either.",
+      title: "Myths and Facts About Going Gluten-Free",
+      author: { name: "Sally Kuzemchak", profession: "Doctor", imageUrl: gluten },
+      date: "August 12, 2022",
+      reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+      comments: [""],
+      newComment: "",
+    },
+  ]);
+
+  const [newPostContent, setNewPostContent] = useState("");
+  const [newPostImage, setNewPostImage] = useState("");
+  const [newPostFile, setNewPostFile] = useState(null);
+
+  const handleAddPost = () => {
+    if (newPostContent) {
+      const newPost = {
+        id: Date.now(),
+        content: newPostContent,
+        title: "New Blog Post", // Default title for new posts
+        imageUrl: newPostFile ? URL.createObjectURL(newPostFile) : newPostImage,
+        author: { name: "Marina", profession: "User", imageUrl: "https://via.placeholder.com/50" },
+        date: new Date().toLocaleDateString(),
+        reactions: { like: 0, love: 0, haha: 0, sad: 0, angry: 0 },
+        comments: [],
+        newComment: "",
+      };
+      setPosts([...posts, newPost]);
+      setNewPostContent("");
+      setNewPostImage("");
+      setNewPostFile(null);
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setNewPostFile(file);
+      setNewPostImage("");
+    }
+  };
+
+  const handleAddComment = (postId) => {
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId && post.newComment) {
+        return {
+          ...post,
+          comments: [...post.comments, `Marina: ${post.newComment}`],
+          newComment: "",
+        };
+      }
+      return post;
+    });
+    setPosts(updatedPosts);
+  };
+
+  const handleCommentChange = (postId, value) => {
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          newComment: value,
+        };
+      }
+      return post;
+    });
+    setPosts(updatedPosts);
+  };
+
+  const handleReaction = (postId, reactionType) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) => {
+        if (post.id === postId) {
+          return {
+            ...post,
+            reactions: {
+              ...post.reactions,
+              [reactionType]: post.reactions[reactionType] + 1,
+            },
+          };
+        }
+        return post;
+      })
+    );
+  };
+
+
   return (
-    <div className="container my-5">
-      <h1 className="text-center mb-4">Blog</h1>
-      <p className="text-center mb-5 text-muted">
-        Welcome to the WellNessWay Blog!
-      </p>
-
-      <div className="row">
-        <div className="col-lg-8 mx-auto">
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              How Telemedicine is Revolutionizing Healthcare
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 31, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. Sarah Adams
-            </p>
-            <p>
-              In recent years, telemedicine has transformed the way we access
-              healthcare. Discover how virtual consultations, online
-              prescriptions, and remote patient monitoring are making healthcare
-              more accessible and efficient. Learn about the technology behind
-              telemedicine and its impact on both patients and healthcare
-              providers.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              Finding the Right Hospital: A Comprehensive Guide
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 24, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> John Doe
-            </p>
-            <p>
-              Choosing the right hospital can be overwhelming. This guide
-              provides tips on how to find hospitals that meet your needs,
-              whether you’re looking for specific specialties, high ratings, or
-              insurance compatibility. Use our hospital locator tool to simplify
-              your search and make informed decisions about your healthcare.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              The Benefits of Booking Appointments Online
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 15, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Jane Smith
-            </p>
-            <p>
-              Online appointment booking offers convenience and efficiency.
-              Explore the advantages of scheduling your healthcare appointments
-              online, including real-time availability, instant confirmations,
-              and the ability to manage all your bookings in one place. Find out
-              how our platform can streamline your healthcare experience.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              Understanding Patient Reviews: What to Look For
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 8, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. Emily Nguyen
-            </p>
-            <p>
-              Patient reviews can provide valuable insights into the quality of
-              care provided by healthcare professionals. Learn how to interpret
-              reviews, what factors to consider, and how to use this information
-              to choose the best healthcare providers for your needs.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              Mental Wellness: Tips for Managing Stress and Anxiety
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 1, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. Michael Brown
-            </p>
-            <p>
-              Mental wellness is an essential component of overall health.
-              Discover practical tips for managing stress and anxiety, including
-              mindfulness techniques, exercise routines, and professional
-              support options. Prioritize your mental well-being with strategies
-              that work for you.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              The Importance of Preventive Health Screenings
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> September 4, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. Alex Rivera
-            </p>
-            <p>
-              Preventive health screenings can catch diseases early when they
-              are most treatable. Learn about the types of screenings you should
-              consider, depending on your age and risk factors. Early detection
-              saves lives, so make sure to prioritize your health by scheduling
-              regular screenings.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              Nutrition and Wellness: A Holistic Approach to Health
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> September 2, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. Linda Thompson
-            </p>
-            <p>
-              Your diet has a significant impact on your overall well-being.
-              Discover how balanced nutrition supports physical and mental
-              health, and explore tips for incorporating healthy eating habits
-              into your lifestyle. Learn about key nutrients that promote
-              wellness and reduce the risk of chronic diseases.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
-
-          <div className="blog-post mb-5">
-            <h2 className="post-title">
-              The Role of Exercise in Mental Health
-            </h2>
-            <p className="text-muted">
-              <strong>Published:</strong> August 28, 2024
-            </p>
-            <p className="text-muted">
-              <strong>Author:</strong> Dr. James Collins
-            </p>
-            <p>
-              Exercise isn't just beneficial for physical health – it's also
-              crucial for mental well-being. Learn how regular physical activity
-              can reduce symptoms of anxiety and depression, improve mood, and
-              enhance cognitive function. Find out how to create an exercise
-              routine that works for you.
-            </p>
-            <a href="#" className="btn btn-primary">
-              Read More
-            </a>
-          </div>
+    <div className="relative">
+      {/* Hero Section */}
+      <div className="w-full bg-blue-100 py-10">
+        <div className="container mx-auto px-4 text-center mt-4">
+          <h1 className="text-4xl font-bold text-da mb-4">Our Health Blog</h1>
+          <p className="text-lg text-pr mb-4">
+            Stay informed with the latest health tips and articles by experts.
+          </p>
         </div>
       </div>
 
-      <div className="text-center mb-5">
-        <h3>Subscribe to Our Newsletter</h3>
-        <p>
-          Stay updated with our latest blog posts, news, and health tips.
-          Subscribe to our newsletter and never miss an update!
-        </p>
-        <a href="#" className="btn btn-secondary">
-          Subscribe Now
-        </a>
-      </div>
+      {/* Main Blog Content */}
+      <div className="container mx-auto py-10 px-4">
+        {/* Create a New Post Section */}
+        <div className="create-post mb-10 bg-white shadow-md rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Create a New Post</h3>
+          <textarea
+            className="w-full p-3 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pr"
+            rows="3"
+            placeholder="What's on your mind?"
+            value={newPostContent}
+            onChange={(e) => setNewPostContent(e.target.value)}
+          />
+          <input
+            type="url"
+            className="w-full p-3 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pr"
+            placeholder="Image URL (optional)"
+            value={newPostImage}
+            onChange={(e) => {
+              setNewPostImage(e.target.value);
+              setNewPostFile(null);
+            }}
+          />
+          <input
+            type="file"
+            className="w-full p-3 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pr"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          <button
+            className="w-full bg-pr text-white py-2 rounded-md hover:bg-da transition-all"
+            onClick={handleAddPost}
+          >
+            Post
+          </button>
+        </div>
 
-      <div className="mb-5">
-        <h3>Categories</h3>
-        <ul className="list-unstyled">
-          <li>
-            <a href="#" className="text-decoration-none">
-              Healthcare Tips
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              Mental Wellness
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              Telemedicine
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              Hospital Locator
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              Patient Reviews
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="mb-5">
-        <h3>Archive</h3>
-        <ul className="list-unstyled">
-          <li>
-            <a href="#" className="text-decoration-none">
-              August 2024
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              July 2024
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-decoration-none">
-              June 2024
-            </a>
-          </li>
-        </ul>
+        {/* Display Posts */}
+        <div className="posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <div key={post.id} className="blog-post mb-6 bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105">
+              {post.imageUrl && (
+                <img
+                  src={post.imageUrl}
+                  alt="Post"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://via.placeholder.com/150";
+                  }}
+                />
+              )}
+              <div className="mb-4">
+                <h2
+                  className="text-xl font-bold text-gray-900 hover:text-blue-500 cursor-pointer"
+                  
+                >
+                  {post.title}
+                </h2>
+                <p className="text-sm text-gray-600">{post.author.name}</p>
+                <p className="text-xs text-gray-500">{post.date}</p>
+              </div>
+              <p className="text-gray-700 mb-4">{post.content}</p>
+              <div className="reactions mb-4 flex space-x-2">
+                <button
+                  className="bg-gray-100 p-2 rounded-lg hover:bg-c3 transition"
+                  onClick={() => handleReaction(post.id, "like")}
+                >
+                  👍 {post.reactions.like}
+                </button>
+                <button
+                  className="bg-gray-100 p-2 rounded-lg hover:bg-red-300 transition"
+                  onClick={() => handleReaction(post.id, "love")}
+                >
+                  ❤️ {post.reactions.love}
+                </button>
+                <button
+                  className="bg-gray-100 p-2 rounded-lg hover:bg-yellow-300 transition"
+                  onClick={() => handleReaction(post.id, "haha")}
+                >
+                  😂 {post.reactions.haha}
+                </button>
+                <button
+                  className="bg-gray-100 p-2 rounded-lg hover:bg-gray-400 transition"
+                  onClick={() => handleReaction(post.id, "sad")}
+                >
+                  😢 {post.reactions.sad}
+                </button>
+                <button
+                  className="bg-gray-100 p-2 rounded-lg hover:bg-red-500 transition"
+                  onClick={() => handleReaction(post.id, "angry")}
+                >
+                  😡 {post.reactions.angry}
+                </button>
+              </div>
+              <div className="comment-section">
+                <input
+                  type="text"
+                  placeholder="Add a comment..."
+                  className="border border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-pr"
+                  value={post.newComment}
+                  onChange={(e) => handleCommentChange(post.id, e.target.value)}
+                />
+                <button
+                  className="mt-2 bg-pr text-white py-2 px-4 rounded-md hover:bg-da transition-all"
+                  onClick={() => handleAddComment(post.id)}
+                >
+                  Comment
+                </button>
+              </div>
+              <div className="comments mt-4">
+                {post.comments.map((comment, index) => (
+                  <p key={index} className="text-gray-600 text-sm">
+                    {comment}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

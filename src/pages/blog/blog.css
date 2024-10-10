@@ -1,8 +1,14 @@
-/* src/pages/Blog.css
-
 .container {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.create-post {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .blog-post {
@@ -13,13 +19,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.post-title {
-    font-size: 1.75rem;
-    margin-bottom: 15px;
+
+/* Modify this class to set width and margin for blog post images */
+
+.img-fluid {
+    max-width: 100%;
+    /* Keep it responsive */
+    height: auto;
 }
 
-.blog-post p {
-    line-height: 1.6;
+.post-image {
+    width: 80%;
+    /* Set the width to 80% of the parent container */
+    margin: 0 auto;
+    /* Center the image horizontally */
+    display: block;
+    /* Ensure the image is displayed as a block element */
 }
 
 .btn-primary {
@@ -33,15 +48,17 @@
     background-color: #0056b3;
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-    border: none;
+.btn-outline-secondary {
+    border-color: #6c757d;
     border-radius: 5px;
-    padding: 10px 20px;
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268;
+.btn-outline-secondary:hover {
+    background-color: #e2e6ea;
+}
+
+.comments {
+    margin-top: 10px;
 }
 
 ul.list-unstyled {
@@ -52,15 +69,20 @@ ul.list-unstyled li {
     margin-bottom: 10px;
 }
 
-ul.list-unstyled a {
-    color: #007bff;
-    text-decoration: none;
+.reactions {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-ul.list-unstyled a:hover {
-    text-decoration: underline;
+.reactions button {
+    margin-right: 5px;
 }
 
-.text-muted {
-    color: #6c757d;
-} */
+.author-photo,
+.comment-photo {
+    width: 100px;
+    /* Size of the photo */
+    height: 50px;
+    border-radius: 50%;
+    /* Circular images */
+}

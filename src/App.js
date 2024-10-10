@@ -14,9 +14,12 @@ import Hospitals from "./pages/hospitaldetails/Hospitals";
 import AppointmentBooking from "./pages/appointmentbooking/AppointmentBooking";
 import Telemedicine from "./pages/telemedicine/Telemedicine";
 import Blog from "./pages/blog/Blog";
-import Contact from "./pages/Contact/Contact";
-import Privacy from "./pages/Privacy/privacy";
-import FAQ from "./pages/faq/faq";
+import Contact from "./pages/Contact/Contact"; // Ensure the file is named `Contact.jsx`
+import Privacy from "./pages/Privacy/privacy"; 
+import FAQ from "./pages/faq/faq"; 
+import Services from "./pages/services/Services";
+import Guides from "./pages/Guides/Guides.jsx"
+import TermsOfService from "./pages/TermsOfService/TermsOfService.jsx"
 
 const router = createBrowserRouter([{
         path: "/",
@@ -37,9 +40,9 @@ const router = createBrowserRouter([{
             { path: "contact", element: < Contact / > },
             { path: "privacy", element: < Privacy / > },
             { path: "faq", element: < FAQ / > },
-
-
-
+            { path: "services", element: < Services / > },
+            { path: "guides", element: < Guides / > },
+            { path: "terms", element: < TermsOfService / > },
         ],
     },
     { path: "/login", element: < Login / > },
@@ -47,13 +50,8 @@ const router = createBrowserRouter([{
 ]);
 
 function App() {
-    return ( <
-        >
-        <
-        RouterProvider router = { router }
-        /> < /
-        >
-    );
+    return <RouterProvider router = { router }
+    />;
 }
 
 export default App;

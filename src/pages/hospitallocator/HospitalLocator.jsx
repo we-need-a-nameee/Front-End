@@ -4,6 +4,7 @@ import hero1 from "../../assets/loc.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { FaStar } from "react-icons/fa"; 
 import MainSecComp from "../../components/mainSecComp/MainSecComp";
 
 const initialHospitals = [
@@ -122,15 +123,28 @@ export default function HospitalLocator() {
     popupAnchor: [0, -41],
   });
 
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    return (
+      <div>
+        {Array.from({ length: fullStars }, (_, i) => (
+          <FaStar key={i} color="gold" />
+        ))}
+        {halfStar && <FaStar color="gold" style={{ opacity: 0.5 }} />}
+      </div>
+    );
+  };
+
   return (
     <>
       <MainSecComp
-       className="relative w-full h-96 md:h-auto md:max-h-screen overflow-hidden"
+        className="relative w-full h-96 md:h-auto md:max-h-screen overflow-hidden"
         hero={hero1}
         heading={`<p>Find Your Nearest Hospital,</p><p>Book with Ease.</p>`}
       />
 
-      <div className=" relative mt-4" style={styles.container}>
+      <div className="relative mt-4" style={styles.container}>
         <h1>Search for Hospitals</h1>
 
         <input
@@ -177,15 +191,22 @@ export default function HospitalLocator() {
             <div>No hospitals found</div>
           ) : (
             filteredHospitals.map((hospital, index) => (
-              <div key={index} style={styles.card}>
-                <strong>{hospital.name}</strong>
-                <p>ICU Beds: {hospital.icuAvailability}</p>
-                <p>Services: {hospital.services.join(", ")}</p>
-                <div className="font-bold text-l mb-2 text-pr">
-                <a href={`/hospital/${hospital.name}`}>More Info</a> |{" "}
+              <div key={index} className="hospital-card" style={styles.card}>
+                <img
+                  src={hospital.photo}
+                  alt={`${hospital.name}`}
+                  style={styles.cardImage}
+                />
+                <div className="hospital-card-tabs" style={styles.tabs}>
+                  <button style={styles.tabButton}>Details</button>
+                  <button style={styles.tabButton}>Contact Info</button>
+                  <button style={styles.tabButton}>Location</button>
+                  <button style={styles.tabButton}>Book</button>
                 </div>
-                <div className="font-bold text-l mb-2 text-pr">
-                <a href={`/book/${hospital.name}`}>Book Appointment</a>
+                <div className="hospital-card-content" style={styles.cardContent}>
+                  <h3>{hospital.name}</h3>
+                  <p>{hospital.description}</p>
+                  <p>Rating: {renderStars(hospital.rating)}</p>
                 </div>
               </div>
             ))
@@ -195,7 +216,6 @@ export default function HospitalLocator() {
     </>
   );
 }
-
 
 const styles = {
   container: {
@@ -228,23 +248,34 @@ const styles = {
     gap: "1rem",
   },
   card: {
-    flex: "1 1 calc(33.333% - 1rem)", 
+    flex: "1 1 calc(33.333% - 1rem)",
     padding: "1rem",
-    backgroundColor: "#F8F9FA",
+    backgroundColor: "#fff",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     textAlign: "center",
-    minWidth: "280px", 
+    minWidth: "280px",
     maxWidth: "100%",
   },
-  "@media (max-width: 768px)": {
-    card: {
-      flex: "1 1 calc(50% - 1rem)", 
-    },
+  cardImage: {
+    width: "100%",
+    height: "auto",
+    marginBottom: "0.5rem",
   },
-  "@media (max-width: 480px)": {
-    card: {
-      flex: "1 1 100%", 
-    },
+  tabs: {
+    display: "flex",
+    justifyContent: "space-around",
+    marginBottom: "1rem",
+  },
+  tabButton: {
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    padding: "0.5rem 1rem",
+    borderRadius: "4px",
+    cursor: "pointer",
+  },
+  cardContent: {
+    textAlign: "left",
   },
 };
