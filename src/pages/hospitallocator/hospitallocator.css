@@ -313,3 +313,36 @@ ul {
 .doctor-card:hover {
     transform: scale(1.02);
 }
+
+.custom-user-marker {
+    width: 40px;
+    /* Adjust the size as needed */
+    height: 40px;
+    /* Adjust the size as needed */
+    background-color: red;
+    /* Marker background color */
+    border-radius: 50%;
+    /* Makes it circular */
+    border: 2px solid white;
+    /* Optional: Adds a white border */
+    position: relative;
+}
+
+.custom-user-marker::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    /* Adjust to position the triangle */
+    left: 50%;
+    margin-left: -5px;
+    /* Center the triangle */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent red transparent;
+    /* Red triangle */
+}
+
+.red-marker {
+    filter: hue-rotate(145deg) saturate(5);
+    /* Adjust saturation to make it more vivid */
+}
